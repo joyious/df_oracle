@@ -17,7 +17,7 @@ contract('Medianizer', accounts => {
         let feed = await PriceFeed.new();
 
         await med.set(feed.address);
-        await feed.post(123, 1557000000, med.address);
+        await feed.post(123, Math.round(Date.now() / 1000) + 10, med.address);
 
         let res = await med.peek();
 
